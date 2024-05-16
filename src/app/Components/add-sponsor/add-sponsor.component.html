@@ -1,0 +1,96 @@
+<div class="container" id="popup">
+    <div class="container">
+        <div class="row mx-5">
+            <p class="d-flex justify-content-center fw-bolder text-warning">Sponsor Information</p>
+            <hr>
+        </div>
+
+        <!-- (ngSubmit)="add(aName.value, eName.value, email.value, phone.value, address.value, code.value, posCode.value, type.value, maxL.value, fncL.value, tmeL.value)" -->
+        <form [formGroup]="sponsorForm" (ngSubmit)="onSubmit()">
+            <div class="row mx-5">
+                <div class="col-md-6 col-12">
+                    <p class="fw-bolder">Arabic Name</p>
+                    <input class="form-control" type="text" #aName formControlName="sponsorAName" placeholder="eg:  ناصر الشيخ" required><br>
+                    <p class="fw-bolder">Latin Name</p>
+                    <input class="form-control" type="text" #eName formControlName="sponsorEName" placeholder="eg: Nasser Al-shaikh" required>
+                </div>
+                <div class="col-md-6 col-12">
+                    <p class="fw-bolder">email</p>
+                    <input class="form-control" type="email" #email formControlName="sponsorEmail" placeholder="eg: johnStarck@gmail.com" required><br>
+                    <p class="fw-bolder">Phone</p>
+                    <input class="form-control" type="text" #phone formControlName="sponsorPhone" placeholder="eg: 01123456789" required>
+                </div>
+            </div><br>
+    
+            <div class="row mx-5">  
+                <div class="col-md-4 col-12">
+                    <p class="fw-bolder">Address</p>
+                    <input class="form-control " type="text" #address formControlName="sponsorAddress" placeholder="eg: riyadh - saudi arabia" required>
+                </div>
+                <div class="col-md-4 col-12">
+                    <p class="fw-bolder">Code</p>
+                    <input class="form-control " type="text" #code formControlName="sponsorCode" placeholder="eg: 12345" required>
+                </div>
+                <div class="col-md-4 col-12">
+                    <p class="fw-bolder">Postal code</p>
+                    <input class="form-control " type="text" #posCode formControlName="sponsorPosCode" placeholder="eg: 12121" required>
+                </div>
+    
+            </div>
+            <div class="row mx-5 mt-4">
+                <div class="col-md-3 col-6">
+                    <p class="fw-bolder">Sponsor Type</p>
+                    <input class="form-control " type="text" #type formControlName="sponsorType" placeholder="eg: legal" required>
+                </div>
+                <div class="col-md-3 col-6">
+                    <p class="fw-bolder">Max Limit</p>
+                    <input class="form-control " type="number" #maxL formControlName="sponsorMaxL" placeholder="eg: 500" required>
+                </div>
+                <div class="col-md-3 col-6">
+                    <p class="fw-bolder">Financial Limit</p>
+                    <input class="form-control " type="number" #fncL formControlName="sponsorFncL" placeholder="eg: 50000" required>
+                </div>
+                <div class="col-md-3 col-6">
+                    <p class="fw-bolder">Time Limit</p>
+                    <input class="form-control " type="number" #tmeL formControlName="sponsorTimeL" placeholder="eg: 3" required>
+                </div>
+            </div>
+
+            <hr>
+            <div class="row mx-5">
+                <p class="d-flex justify-content-center fw-bolder text-warning">Sponsor's Contact Officer Information</p>
+                <hr>
+            </div>
+    
+            <div formArrayName="contactOfficers">
+              <div *ngFor="let officer of contactOfficers.controls; let i = index">
+                <div [formGroupName]="i">
+                  <div class="row mx-5">
+                    <div class="col-md-6 col-12">
+                        <p class="fw-bolder">Arabic Name</p>
+                        <input class="form-control" type="text" #aName id="officerAName" formControlName="officerAName" placeholder="eg: ناصر الشيخ" required><br>
+                        <p class="fw-bolder">Latin Name</p>
+                        <input class="form-control" type="text" #eName id="officeErName" formControlName="officerEName" placeholder="eg: Nasser Al-shaikh" required>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <p class="fw-bolder">email</p>
+                        <input class="form-control" type="email" #email id="officerEmail" formControlName="officerEmail" placeholder="eg: johnStarck@gmail.com" required><br>
+                        <p class="fw-bolder">Phone</p>
+                        <input class="form-control" type="text" #phone id="officerPhone" formControlName="officerPhone" placeholder="eg: 01123456789" required>
+                    </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          
+            <button class="mt-3 ms-auto" type="button" (click)="addContactOfficer()">Add Contact Officer</button>
+            <hr>
+            <div class="row m-3">
+                <div class="col d-flex justify-content-center">
+                    <input type="submit" class="btn btn-primary" value="ADD" style="width: 12em; height: 2em;"/>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</div>

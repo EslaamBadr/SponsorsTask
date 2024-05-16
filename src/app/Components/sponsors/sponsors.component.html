@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="d-flex justify-content-around bg-primary p-2">
+            <p class="text-light fs-5 m-0">Sponsors</p>
+            <button class="btn btn-light rounded-0" style="width: 12em; height: 2em;" routerLink="addSpons">+ Add Sponsor</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isLoading" class="loader">
+    <img src="/assets/Images/Spinner-3.gif">
+</div>
+<!-- <div *ngIf="!isLoading" class="container">
+    <div class="row mt-4 ">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="table-primary">
+                        <td>Id</td>
+                        <td>Arabic Name</td>
+                        <td>latin Name</td>
+                        <td>Code</td>
+                        <td>Complete Details</td>
+                        <td>Contact Officers</td>
+                        <td>Update</td>
+                    </tr>
+                </thead>
+                <tbody id="user-table">
+                    <tr *ngFor="let u of Sponsors.data.data" class="">
+                        <td>{{u.id}}</td>
+                        <td>{{u.sponsor_name}}</td>
+                        <td>{{u.sponsor_name_latin}}</td>
+                        <td>{{u.sponsor_code}}</td>
+                        <td><button type="button" class="btn btn-primary"
+                                routerLink="/sponsor/{{u.id}}">Details</button></td>
+                        <td><button type="button" class="btn btn-info" routerLink="/officers">Contact Officers</button>
+                        </td>
+                        <td><button type="button" class="btn btn-success" routerLink="/up/{{u.id}}">Update</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> -->
+
+
+
+<div *ngIf="isLoading" class="loader">
+    <img src="/assets/Images/Spinner-3.gif">
+</div>
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
+    integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+
+    <div class="container" *ngIf="!isLoading">
+        <div class="row" *ngFor="let u of Sponsors.data.data">
+            <div class="col-lg-12" routerLink="/sponsor/{{u.id}}">
+                <div class="candidate-list">
+                    <div class="card mt-2">
+                        <div class="p-4 card-body">
+                            <div class="align-items-center row">
+                                <div class="col-lg-5">
+                                    <div class="mt-3 mt-lg-0">
+                                        <h5 class="fs-19 mb-0">
+                                            <a class="primary-link" routerLink="/sponsor/{{u.id}}">{{u.sponsor_name}}</a>
+                                        </h5>
+                                        <p class="text-muted mb-2">{{u.sponsor_code}}</p>
+                                        <ul class="list-inline mb-0 text-muted">
+                                            <li class="list-inline-item"><i class="mdi mdi-map-marker"></i>{{u.address}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
