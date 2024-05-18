@@ -1,8 +1,8 @@
 <div class="container-fluid">
     <div class="row mt-3">
         <div class="d-flex justify-content-around bg-primary p-2">
-            <p class="text-light fs-5 m-0">Sponsor</p>
-            <button class="btn btn-light rounded-0" style="width: 12em; height: 2em;">Update Sponsor</button>
+            <p class="text-light fs-5 m-0">Sponsor Details</p>
+            <button class="btn btn-light rounded-0" style="width: 12em; height: 2em;" routerLink="../../updateSponsor/{{sponsor.data.id}}"><i class="fas fa-edit"></i> Update Sponsor</button>
         </div>
     </div>
 </div>
@@ -21,6 +21,9 @@
                     <p>Phone:</p>
                     <p>Address:</p>
                     <p>Email:</p>
+                    <p>Max Limit:</p>
+                    <p>Financial Limit:</p>
+                    <p>Time Limit:</p>
                 </div>
                 <div class="col2 col-9 mt-4">
                     <p>{{sponsor.data.sponsor_name}}</p>
@@ -29,6 +32,9 @@
                     <p>{{sponsor.data.phone}}</p>
                     <p>{{sponsor.data.address}}</p>
                     <p>{{sponsor.data.email}}</p>
+                    <p>{{sponsor.data.max_limit}}</p>
+                    <p>{{sponsor.data.financial_limit}}</p>
+                    <p>{{sponsor.data.time_limit}}</p>
                 </div>
             </div>
         </div>
@@ -39,11 +45,8 @@
             <div *ngIf="isLoadingOff" class="loader">
                 <img src="/assets/Images/Spinner-3.gif">
             </div>
-            <link rel="stylesheet"
-                href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
-                integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
 
-            <div class="container" *ngIf="!isLoadingOff">
+            <!-- <div class="container" *ngIf="!isLoadingOff">
                 <div class="row" *ngFor="let o of officers.data.data">
                     <div *ngIf="o.sponsor_id === sponsor.data.id">
                         <div class="col-lg-12" routerLink="/sponsor/{{o.id}}">
@@ -68,7 +71,43 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+
+            <table class="table table-striped mt-4">
+                <thead>
+                    <tr class="table-primary">
+                        <td>Arabic Name</td>
+                        <td>Latin Name</td>
+                        <td>Phone</td>
+                        <td>Email</td>
+                        <td>Details</td>
+                    </tr>
+                </thead>
+                <tbody id="user-table">
+
+                    <!-- <tr *ngFor="let o of officers.data.data" class="" routerLink="/officer/{{o.id}}">
+                            <td>{{o.contact_officer_name}}</td>
+                            <td>{{o.contact_officer_name_latin}}</td>
+                            <td>{{o.phone}}</td>
+                            <td>{{o.email}}</td>
+                            <td><button type="button" class="btn btn-primary"
+                                    routerLink="/sponsor/{{o.id}}">Details</button></td>
+                    </tr> -->
+
+                    <ng-container *ngFor="let o of officers.data.data">
+                        <tr *ngIf="o.sponsor_id === sponsor.data.id" routerLink="/officer/{{o.id}}">
+                            <td>{{o.contact_officer_name}}</td>
+                            <td>{{o.contact_officer_name_latin}}</td>
+                            <td>{{o.phone}}</td>
+                            <td>{{o.email}}</td>
+                            <td><button type="button" class="btn btn-primary"
+                                    routerLink="/sponsor/{{o.id}}">Details</button></td>
+                        </tr>
+                      </ng-container>
+
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

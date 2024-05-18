@@ -5,31 +5,34 @@
             <hr>
         </div>
 
-        <!-- (ngSubmit)="add(aName.value, eName.value, email.value, phone.value, address.value, code.value, posCode.value, type.value, maxL.value, fncL.value, tmeL.value)" -->
-        <form [formGroup]="sponsorForm" (ngSubmit)="onSubmit()">
+        <div *ngIf="isLoading" class="loader">
+            <img src="/assets/Images/Spinner-3.gif">
+        </div>
+
+        <form *ngIf="!isLoading" [formGroup]="sponsorForm" (ngSubmit)="onSubmit()">
             <div class="row mx-5">
                 <div class="col-md-6 col-12">
                     <p class="fw-bolder">Arabic Name</p>
-                    <input class="form-control" type="text" #aName formControlName="sponsorArabicName" placeholder="eg:  ناصر الشيخ" required><br>
-                    <div *ngIf="sponsorForm.get('sponsorArabicName')?.touched && sponsorForm.get('sponsorArabicName')?.invalid">
-                        <p class="error">{{ getErrorMessage('sponsorArabicName') }}</p>
+                    <input class="form-control" type="text" formControlName="ArabicName" placeholder="eg:  ناصر الشيخ" required><br>
+                    <div *ngIf="sponsorForm.get('ArabicName')?.touched && sponsorForm.get('ArabicName')?.invalid">
+                        <p class="error">{{ getErrorMessage('ArabicName') }}</p>
                       </div>
                     <p class="fw-bolder">Latin Name</p>
-                    <input class="form-control" type="text" #eName formControlName="sponsorLatinName" placeholder="eg: Nasser Al-shaikh" required>
-                    <div *ngIf="sponsorForm.get('sponsorLatinName')?.touched && sponsorForm.get('sponsorLatinName')?.invalid">
-                        <p class="error">{{ getErrorMessage('sponsorLatinName') }}</p>
+                    <input class="form-control" type="text" formControlName="LatinName" placeholder="eg: Nasser Al-shaikh" required>
+                    <div *ngIf="sponsorForm.get('LatinName')?.touched && sponsorForm.get('LatinName')?.invalid">
+                        <p class="error">{{ getErrorMessage('LatinName') }}</p>
                       </div>
                 </div>
                 <div class="col-md-6 col-12">
                     <p class="fw-bolder">email</p>
-                    <input class="form-control" type="email" #email formControlName="sponsorEmail" placeholder="eg: johnStarck@gmail.com" required><br>
-                    <div *ngIf="sponsorForm.get('sponsorEmail')?.touched && sponsorForm.get('sponsorEmail')?.invalid">
-                        <p class="error">{{ getErrorMessage('sponsorEmail') }}</p>
+                    <input class="form-control" type="email" #email formControlName="Email" placeholder="eg: johnStarck@gmail.com" required><br>
+                    <div *ngIf="sponsorForm.get('Email')?.touched && sponsorForm.get('Email')?.invalid">
+                        <p class="error">{{ getErrorMessage('Email') }}</p>
                       </div>
                     <p class="fw-bolder">Phone</p>
-                    <input class="form-control" type="text" #phone formControlName="sponsorPhone" placeholder="eg: 01123456789" required>
-                    <div *ngIf="sponsorForm.get('sponsorPhone')?.touched && sponsorForm.get('sponsorPhone')?.invalid">
-                        <p class="error">{{ getErrorMessage('sponsorPhone') }}</p>
+                    <input class="form-control" type="text" #phone formControlName="Phone" placeholder="eg: 01123456789" required>
+                    <div *ngIf="sponsorForm.get('Phone')?.touched && sponsorForm.get('Phone')?.invalid">
+                        <p class="error">{{ getErrorMessage('Phone') }}</p>
                       </div>
                 </div>
             </div><br>
@@ -89,6 +92,7 @@
                 </div>
             </div>
 
+
             <hr>
             <div class="row mx-5">
                 <p class="d-flex justify-content-center fw-bolder text-warning">Sponsor's Contact Officer Information</p>
@@ -130,9 +134,10 @@
           
             <button class="mt-3 ms-auto" type="button" (click)="addContactOfficer()">Add Contact Officer</button>
             <hr>
+
             <div class="row m-3">
                 <div class="col d-flex justify-content-center">
-                    <input type="submit" class="btn btn-primary" value="ADD" style="width: 12em; height: 2em;"/>
+                    <input type="submit" class="btn btn-primary" value="UPDATE" style="width: 12em; height: 2em;"/>
                 </div>
             </div>
         </form>

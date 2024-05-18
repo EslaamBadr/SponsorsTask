@@ -2,7 +2,7 @@
     <div class="row mt-3">
         <div class="d-flex justify-content-around bg-primary p-2">
             <p class="text-light fs-5 m-0">Sponsors</p>
-            <button class="btn btn-light rounded-0" style="width: 12em; height: 2em;" routerLink="addSpons">+ Add Sponsor</button>
+            <button class="btn btn-light rounded-0" style="width: 12em; height: 2em;" routerLink="addSponsor"><i class="fas fa-plus"></i> Add Sponsor</button>
         </div>
     </div>
 </div>
@@ -10,42 +10,43 @@
 <div *ngIf="isLoading" class="loader">
     <img src="/assets/Images/Spinner-3.gif">
 </div>
-<!-- <div *ngIf="!isLoading" class="container">
+<div *ngIf="!isLoading" class="container">
     <div class="row mt-4 ">
-        <div class="col-12">
+        <div class="col-md-12 col-12">
             <table class="table table-striped">
                 <thead>
                     <tr class="table-primary">
                         <td>Id</td>
                         <td>Arabic Name</td>
-                        <td>latin Name</td>
+                        <td>Latin Name</td>
                         <td>Code</td>
+                        <td>Address</td>
+                        <td>Email</td>
                         <td>Complete Details</td>
-                        <td>Contact Officers</td>
                         <td>Update</td>
                     </tr>
                 </thead>
                 <tbody id="user-table">
-                    <tr *ngFor="let u of Sponsors.data.data" class="">
+                    <tr *ngFor="let u of Sponsors.data.data" class="" routerLink="/sponsor/{{u.id}}">
                         <td>{{u.id}}</td>
                         <td>{{u.sponsor_name}}</td>
                         <td>{{u.sponsor_name_latin}}</td>
                         <td>{{u.sponsor_code}}</td>
+                        <td>{{u.address}}</td>
+                        <td>{{u.email}}</td>
                         <td><button type="button" class="btn btn-primary"
                                 routerLink="/sponsor/{{u.id}}">Details</button></td>
-                        <td><button type="button" class="btn btn-info" routerLink="/officers">Contact Officers</button>
-                        </td>
-                        <td><button type="button" class="btn btn-success" routerLink="/up/{{u.id}}">Update</button></td>
+                        <td><button type="button" class="btn btn-success" routerLink="/updateSponsor/{{u.id}}">Update</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-</div> -->
+</div>
 
 
 
-<div *ngIf="isLoading" class="loader">
+<!-- <div *ngIf="isLoading" class="loader">
     <img src="/assets/Images/Spinner-3.gif">
 </div>
 <link rel="stylesheet"
@@ -76,4 +77,4 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->

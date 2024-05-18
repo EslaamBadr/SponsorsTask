@@ -7,6 +7,8 @@ import { ErrorComponent } from './Components/error/error.component';
 import { OfficerDetailsComponent } from './Components/officer-details/officer-details.component';
 import { LoginComponent } from './Components/login/login.component';
 import { AddSponsorComponent } from './Components/add-sponsor/add-sponsor.component';
+import { UpdateSponsorComponent } from './Components/update-sponsor/update-sponsor.component';
+import { UpdateOfficerComponent } from './Components/update-officer/update-officer.component';
 
 const routes: Routes = [
   {path: '', component: SponsorsComponent},
@@ -15,7 +17,9 @@ const routes: Routes = [
   {path: 'officers', component: OfficersComponent},
   {path: 'officer/:id', component: OfficerDetailsComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'addSpons', component: AddSponsorComponent},
+  {path: 'addSponsor', component: AddSponsorComponent},
+  {path: 'updateSponsor/:id', component: UpdateSponsorComponent},
+  {path: 'updateOfficer/:id1/:id2', component: UpdateOfficerComponent},
   {path: '**', component: ErrorComponent},
 ];
 

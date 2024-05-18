@@ -2,7 +2,7 @@
     <div class="row mt-3">
         <div class="d-flex justify-content-around bg-primary p-2">
             <p class="text-light fs-5 m-0">Sponsor's Contact Officer</p>
-            <button class="btn btn-light rounded-0" style="width: 12em; height: 2em;">Update Officer</button>
+            <button class="btn btn-light rounded-0" style="width: 12em; height: 2em;" routerLink="../../updateOfficer/{{officer.data.id}}/{{officer.data.sponsor_id}}"><i class="fas fa-edit"></i> Update Officer</button>
         </div>
     </div>
 </div>
@@ -19,12 +19,14 @@
                     <p>Latin Name:</p>
                     <p>Phone:</p>
                     <p>Email:</p>
+                    <p>Sponsor:</p>
                 </div>
                 <div class="col2 col-9 mt-4">
                     <p>{{officer.data.contact_officer_name}}</p>
                     <p>{{officer.data.contact_officer_name_latin}}</p>
                     <p>{{officer.data.phone}}</p>
                     <p>{{officer.data.email}}</p>
+                    <p>{{officer.data.sponsor_id}}</p>
                 </div>
             </div>
         </div>

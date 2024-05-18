@@ -1,0 +1,47 @@
+<div class="container" id="popup">
+    <div class="container">
+        <div class="row mx-5">
+            <p class="d-flex justify-content-center fw-bolder text-warning">Officer Information</p>
+            <hr>
+        </div>
+
+        <div *ngIf="isLoading" class="loader">
+            <img src="/assets/Images/Spinner-3.gif">
+        </div>
+
+        <form *ngIf="!isLoading" [formGroup]="sponsorForm" (ngSubmit)="onSubmit()">
+            <div class="row mx-5">
+                <div class="col-md-6 col-12">
+                    <p class="fw-bolder">Arabic Name</p>
+                    <input class="form-control" type="text" formControlName="ArabicName" placeholder="eg:  ناصر الشيخ" required><br>
+                    <div *ngIf="sponsorForm.get('ArabicName')?.touched && sponsorForm.get('ArabicName')?.invalid">
+                        <p class="error">{{ getErrorMessage('ArabicName') }}</p>
+                      </div>
+                    <p class="fw-bolder">Latin Name</p>
+                    <input class="form-control" type="text" formControlName="LatinName" placeholder="eg: Nasser Al-shaikh" required>
+                    <div *ngIf="sponsorForm.get('LatinName')?.touched && sponsorForm.get('LatinName')?.invalid">
+                        <p class="error">{{ getErrorMessage('LatinName') }}</p>
+                      </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <p class="fw-bolder">email</p>
+                    <input class="form-control" type="email" #email formControlName="Email" placeholder="eg: johnStarck@gmail.com" required><br>
+                    <div *ngIf="sponsorForm.get('Email')?.touched && sponsorForm.get('Email')?.invalid">
+                        <p class="error">{{ getErrorMessage('Email') }}</p>
+                      </div>
+                    <p class="fw-bolder">Phone</p>
+                    <input class="form-control" type="text" #phone formControlName="Phone" placeholder="eg: 01123456789" required>
+                    <div *ngIf="sponsorForm.get('Phone')?.touched && sponsorForm.get('Phone')?.invalid">
+                        <p class="error">{{ getErrorMessage('Phone') }}</p>
+                      </div>
+                </div>
+            </div><br>
+            <div class="row m-3">
+                <div class="col d-flex justify-content-center">
+                    <input type="submit" class="btn btn-primary" value="UPDATE" style="width: 12em; height: 2em;"/>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</div>

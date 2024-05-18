@@ -14,6 +14,8 @@ import { RouterModule, Routes } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddSponsorComponent } from './Components/add-sponsor/add-sponsor.component';
+import { UpdateSponsorComponent } from './Components/update-sponsor/update-sponsor.component';
+import { UpdateOfficerComponent } from './Components/update-officer/update-officer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { AddSponsorComponent } from './Components/add-sponsor/add-sponsor.compon
     LoginComponent,
     ErrorComponent,
     HeaderComponent,
-    AddSponsorComponent
+    AddSponsorComponent,
+    UpdateSponsorComponent,
+    UpdateOfficerComponent
   ],
   imports: [
     BrowserModule,

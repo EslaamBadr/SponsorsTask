@@ -45,8 +45,8 @@ export class SponsorsService {
 
   UpdateSponsor(updatedUser:any, id:any){
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
-    return this.myClient.put(this.sponsorsAPI+"/"+id, updatedUser, {headers})
-    // return this.myClient.post(this.sponsorsAPI+"/"+id+"?_method=put", updatedUser)
+    //return this.myClient.put(this.sponsorsAPI+"/"+id, updatedUser, {headers})
+     return this.myClient.put(this.sponsorsAPI+"/"+id+"?_method=put", updatedUser, {headers})
   }
 
   UpdateOfficer(updatedUser:any, id:any){

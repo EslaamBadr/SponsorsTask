@@ -15,21 +15,21 @@ export class SponsorDetailsComponent {
   isLoading: boolean = true;
   isLoadingOff: boolean = true;
 
-  constructor(myRoute:ActivatedRoute,public myServic:SponsorsService) {
+  constructor(myRoute:ActivatedRoute,public myService:SponsorsService) {
     this.ID=myRoute.snapshot.params["id"];
     console.log(this.ID)
   }
 
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
-    this.myServic.GetSponsorById(this.ID).subscribe(
+    this.myService.GetSponsorById(this.ID).subscribe(
       {
         next: (data:any)=>{this.sponsor=data; this.isLoading = false; console.log(data);},
         error: (err)=>{console.log(err)},
         complete: ()=>{console.log("Success")}
       }
     );
-    this.myServic.GetAllOfficers().subscribe(
+    this.myService.GetAllOfficers().subscribe(
       {
         next: (data:any)=>{this.officers=data; this.isLoadingOff = false;console.log(data.data.data);},
         error: (err)=>{console.log(err)},
