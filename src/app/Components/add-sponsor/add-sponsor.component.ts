@@ -23,8 +23,8 @@ export class AddSponsorComponent {
     this.sponsorForm = this.fb.group({
       sponsorArabicName: ['', Validators.required],
       sponsorLatinName: ['', Validators.required],
-      sponsorEmail: ['', Validators.required],
-      sponsorPhone: ['', Validators.required],
+      sponsorEmail: ['', Validators.pattern(this.emailReg)],
+      sponsorPhone: ['', Validators.pattern(this.phoneReg)],
       Address: ['', Validators.required],
       Code: ['', Validators.required],
       PostalCode: ['', Validators.required],
@@ -46,7 +46,7 @@ export class AddSponsorComponent {
       officerArabicName: ['', Validators.required],
       officerLatinName: ['', Validators.required],
       officerPhone: ['', Validators.required],
-      officerEmail: ['', Validators.required]
+      officerEmail: ['', Validators.pattern(this.emailReg)]
     });
 
     this.contactOfficers.push(contactOfficer);

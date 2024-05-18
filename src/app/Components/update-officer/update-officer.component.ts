@@ -38,10 +38,10 @@ export class UpdateOfficerComponent {
 
     this.sponsorForm = this.fb.group({
       // Define your form controls and default values here
-      ArabicName: [''],
-      LatinName: [''],
-      Email: [''],
-      Phone: [''],
+      ArabicName: ['', Validators.required],
+      LatinName: ['', Validators.required],
+      Email: ['', Validators.pattern(this.emailReg)],
+      Phone: ['', Validators.required],
     });
   }
 

@@ -34,7 +34,7 @@ export class UpdateSponsorComponent {
       officerArabicName: ['', Validators.required],
       officerLatinName: ['', Validators.required],
       officerPhone: ['', Validators.required],
-      officerEmail: ['', Validators.email]
+      officerEmail: ['', Validators.pattern(this.emailReg)]
     });
     this.contactOfficers.push(contactOfficer);
   }
